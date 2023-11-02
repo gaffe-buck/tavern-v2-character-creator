@@ -1,0 +1,14 @@
+{
+  "name": "tavern-v2-character-creator",
+  "version": "1.0.0",
+  "description": "A simple character creator for Character Card Spec v2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}
