@@ -1,0 +1,112 @@
+{
+    "extends": [
+        "tslint-config-prettier"
+    ],
+    "rules": {
+        "align": [
+            true,
+            "parameters",
+            "statements"
+        ],
+        "ban": false,
+        "class-name": true,
+        "comment-format": [
+            true,
+            "check-space"
+        ],
+        "curly": false,
+        "forin": true,
+        "indent": [
+            true,
+            "spaces"
+        ],
+        "jsdoc-format": true,
+        "label-position": true,
+        "max-line-length": [
+            false,
+            140
+        ],
+        "member-access": false,
+        "no-any": false,
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-conditional-assignment": true,
+        "no-console": [
+            true,
+            "debug",
+            "info",
+            "time",
+            "timeEnd",
+            "trace"
+        ],
+        "no-construct": true,
+        "no-debugger": true,
+        "no-duplicate-variable": true,
+        "no-empty": false,
+        "no-eval": true,
+        "no-inferrable-types": [
+            false
+        ],
+        "no-internal-module": false,
+        "no-require-imports": false,
+        "no-shadowed-variable": true,
+        "no-switch-case-fall-through": false,
+        "no-trailing-whitespace": true,
+        "no-unused-expression": true,
+        "no-var-keyword": true,
+        "no-var-requires": false,
+        "object-literal-sort-keys": false,
+        "ordered-imports": [
+            true,
+            {
+                "import-sources-order": "lowercase-first",
+                "named-imports-order": "lowercase-first"
+            }
+        ],
+        "one-line": [
+            true,
+            "check-open-brace",
+            "check-whitespace"
+        ],
+        "quotemark": [
+            true,
+            "double"
+        ],
+        "radix": false,
+        "semicolon": [
+            false,
+            "never"
+        ],
+        "switch-default": true,
+        "trailing-comma": [
+            true,
+            {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        ],
+        "triple-equals": [
+            true,
+            "allow-null-check"
+        ],
+        "typedef-whitespace": [
+            true,
+            {
+                "call-signature": "nospace",
+                "index-signature": "nospace",
+                "parameter": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            }
+        ],
+        "variable-name": false,
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-separator",
+            "check-type"
+        ]
+    }
+}
