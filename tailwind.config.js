@@ -13,6 +13,7 @@ module.exports = {
       'mumble': '#6C464F',
       'loud': '#D4A373',
       'label': '#CCD5AE',
+      'interactive': "#3E92CC",
       'white': '#fff'
     },
     extend: {},

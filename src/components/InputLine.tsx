@@ -10,7 +10,7 @@ export function InputLine(props: InputLineProps) {
     return <div className="mb-8">
         <label
             htmlFor={props.name}
-            className="block text-2xl font-bold text-mumble mb-4">
+            className="block text-xl font-bold text-mumble mb-4">
             {props.label}
         </label>
         <input
