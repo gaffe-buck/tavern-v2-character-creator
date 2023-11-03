@@ -5,10 +5,12 @@ All the fun AI roleplay tools have 'tavern' in the name so mine will, too. Tv2CC
 
 ## Roadmap
 
-### Good Enough
+### Minimum Viable Product
 * elegant, comfortable interface for composing character cards
 * support all major features of the character card spec v2
-* export JSON 
+* validate card
+* backfill with V1 data
+* export to JSON
 
 ### Stretch Goals
 * light/dark mode toggle
@@ -17,6 +19,7 @@ All the fun AI roleplay tools have 'tavern' in the name so mine will, too. Tv2CC
 * toggle outline
 * collapse lorebook entries
 * live estimated token counts
+* audit accessibility and resolve issues
 
 ### If You Pay Me
 * host as service with persistent storage, character gallery, social features

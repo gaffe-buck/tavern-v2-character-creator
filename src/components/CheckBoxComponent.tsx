@@ -1,4 +1,3 @@
-import { State, useHookstate } from "@hookstate/core";
 import React from "react";
 
 interface CheckBoxComponentProps {
@@ -6,11 +5,11 @@ interface CheckBoxComponentProps {
     checkBoxLabel: string
     placeholder?: string
     name?: string
+    value: boolean
+    onChange: () => void
 }
 
 export function CheckBoxComponent(props: CheckBoxComponentProps) {
-    const checkState: State<boolean> = useHookstate(false)
-
     return <div className="mb-8">
         <label
             htmlFor={props.name}
@@ -18,11 +17,11 @@ export function CheckBoxComponent(props: CheckBoxComponentProps) {
             {props.label}
         </label>
         <div
-            onClick={() => checkState.set(!checkState.value)}
+            onClick={() => props.onChange()}
             className="flex flex-row items-center hover:cursor-pointer select-none">
             <span
                 className="mr-2 material-symbols-outlined">
-                {checkState.value
+                {props.value
                     ? "check_box"
                     : "check_box_outline_blank"}
             </span>

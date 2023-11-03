@@ -1,16 +1,14 @@
-import { State, useHookstate } from "@hookstate/core";
 import React from "react";
 
 interface RadioComponentProps {
     name?: string
     label: string
     radios: { label: string, value: string }[]
-    default: number
+    value: number
+    onChange: (i: number) => void
 }
 
 export function RadioComponent(props: RadioComponentProps) {
-    const radioState: State<number> = useHookstate(props.default)
-
     return <div className="mb-8">
         <label
             htmlFor={props.name}
@@ -19,11 +17,12 @@ export function RadioComponent(props: RadioComponentProps) {
         </label>
         {props.radios.map((r, i) =>
             <div
-                onClick={() => radioState.set(i)}
+                key={i}
+                onClick={() => props.onChange(i)}
                 className="flex flex-row items-center hover:cursor-pointer select-none mb-2">
                 <span
                     className="mr-2 material-symbols-outlined">
-                    {i == radioState.value
+                    {i == props.value
                         ? "radio_button_checked"
                         : "radio_button_unchecked"}
                 </span>

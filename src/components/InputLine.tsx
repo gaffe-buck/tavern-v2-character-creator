@@ -4,6 +4,8 @@ interface InputLineProps {
     label: string
     placeholder?: string
     name?: string
+    value: string
+    onChange: (v: string) => void
 }
 
 export function InputLine(props: InputLineProps) {
@@ -17,6 +19,8 @@ export function InputLine(props: InputLineProps) {
             name={props.name}
             id={props.name}
             placeholder={props.placeholder}
+            value={props.value}
+            onChange={(e) => { props.onChange(e.target.value) }}
             type="text"
             className="w-full p-4 text-lg border-2 border-mumble rounded-md bg-inset focus:outline-none placeholder:text-loud text-mumble"
         />

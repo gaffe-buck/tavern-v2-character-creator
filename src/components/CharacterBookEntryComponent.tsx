@@ -1,4 +1,4 @@
-import { ImmutableObject } from "@hookstate/core";
+import { ImmutableObject, State, none } from "@hookstate/core";
 import React from "react";
 import { CharacterBookEntry } from "src/spec";
 import { CheckBoxComponent } from "./CheckBoxComponent";
@@ -9,11 +9,23 @@ import { RadioComponent } from "./RadioComponent";
 interface CharacterBookEntryComponentProps {
     name: string,
     label: string,
-    entry: ImmutableObject<CharacterBookEntry>,
+    entry: State<CharacterBookEntry>,
     onDelete: () => void
 }
 
 export function CharacterBookEntryComponent(props: CharacterBookEntryComponentProps) {
+    function getPositionRadioValue(): number {
+        if (props.entry.position.value === "before_char") return 1
+        if (props.entry.position.value === "after_char") return 2
+        return 0
+    }
+
+    function setPositionRadioValue(i: number) {
+        if (i === 0) props.entry.position.set(none)
+        if (i === 1) props.entry.position.set("before_char")
+        if (i === 2) props.entry.position.set("after_char")
+    }
+
     return <div className="mb-4">
         <label
             className="block text-xl font-bold text-mumble mb-4">
@@ -30,68 +42,94 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
             name={`${props.name}.name`}
             label="Name"
             placeholder="The name of this entry. Not used in prompt"
+            value={props.entry.name.value}
+            onChange={(v) => props.entry.name.set(v)}
         />
         <InputLine
             name={`${props.name}.keys`}
             label="Keys"
             placeholder="comma, separated, list, of, keys"
+            value={"IMPLEMENT ME"}
+            onChange={(v) => console.log("IMPLEMENT ME!")}
         />
         <InputLine
             name={`${props.name}.secondary_keys`}
             label="Secondary Keys"
             placeholder="comma, separated, list, of, keys"
+            value={"IMPLEMENT ME"}
+            onChange={(v) => console.log("IMPLEMENT ME!")}
         />
         <InputBox
             name={`${props.name}.content`}
             label="Entry Content"
             rows={3}
             placeholder="The lore for this entry's keys goes here."
+            value={props.entry.content.value}
+            onChange={(v) => props.entry.content.set(v)}
         />
         <InputBox
             name={`${props.name}.extensions`}
             label="Entry Extensions"
             rows={2}
             placeholder="{}"
+            value={"IMPLEMENT ME"}
+            onChange={(v) => console.log("IMPLEMENT ME!")}
         />
         <CheckBoxComponent
             name={`${props.name}.enabled`}
             label="Enabled"
             checkBoxLabel="Enable this entry"
+            value={props.entry.enabled.value}
+            onChange={() => props.entry.enabled.set(!props.entry.enabled.value)}
         />
         <CheckBoxComponent
             name={`${props.name}.case_sensitive`}
             label="Case Sensitive"
             checkBoxLabel="Enforce case sensitivity when parsing keys"
+            value={props.entry.case_sensitive.value}
+            onChange={() => props.entry.case_sensitive.set(!props.entry.case_sensitive.value)}
         />
         <InputLine
             name={`${props.name}.insertion_order`}
             label="Insertion Order"
             placeholder="0"
+            value={"IMPLEMENT ME"}
+            onChange={(v) => console.log("IMPLEMENT ME!")}
         />
         <InputLine
             name={`${props.name}.priority`}
             label="Priority"
             placeholder="0"
+            value={"IMPLEMENT ME"}
+            onChange={(v) => console.log("IMPLEMENT ME!")}
         />
         <InputLine
             name={`${props.name}.id`}
             label="Id"
             placeholder="Optional"
+            value={"IMPLEMENT ME"}
+            onChange={(v) => console.log("IMPLEMENT ME!")}
         />
         <InputLine
             name={`${props.name}.comment`}
             label="Comment"
             placeholder="Optional"
+            value={props.entry.name.value}
+            onChange={(v) => props.entry.name.set(v)}
         />
         <CheckBoxComponent
             name={`${props.name}.selective`}
             label="Selective"
             checkBoxLabel="Require a key from both keys and secondary keys to trigger this entry"
+            value={props.entry.selective.value}
+            onChange={() => props.entry.selective.set(!props.entry.selective.value)}
         />
         <CheckBoxComponent
             name={`${props.name}.constant`}
             label="Constant"
             checkBoxLabel="Always insert this entry into the prompt."
+            value={props.entry.constant.value}
+            onChange={() => props.entry.constant.set(!props.entry.constant.value)}
         />
         <RadioComponent
             name={`${props.name}.position`}
@@ -102,6 +140,8 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
                 { label: "Before character definitions", value: "before_char" },
                 { label: "After character definitions", value: "after_char" },
             ]}
+            value={getPositionRadioValue()}
+            onChange={(i: number) => setPositionRadioValue(i)}
         />
     </div>
 }
