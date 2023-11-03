@@ -5,6 +5,7 @@ import { InputLine } from "./InputLine";
 import { InputBox } from "./InputBox";
 import { Header2 } from "./Header2";
 import { CheckBoxComponent } from "./CheckBoxComponent";
+import { CharacterBookEntries } from "./CharacterBookEntries";
 
 export function CharacterBookComponent() {
     const createCharacterBook = (): CharacterBook => {
@@ -34,12 +35,12 @@ export function CharacterBookComponent() {
             <React.Fragment>
                 <InputLine
                     name="lore.name"
-                    label="Book Name"
+                    label="Character Book Name"
                     placeholder="Optional"
                 />
                 <InputLine
                     name="lore.description"
-                    label="Book Description"
+                    label="Character Book Description"
                     placeholder="Optional"
                 />
                 <InputLine
@@ -55,22 +56,17 @@ export function CharacterBookComponent() {
                 <CheckBoxComponent
                     name="lore.recursive_scanning"
                     label="Recursive Scanning"
+                    checkBoxLabel="Enable recursive scanning"
                     placeholder="false"
                 />
                 <InputBox
                     name="lore.extensions"
                     label="Book Extensions"
-                    rows={4}
+                    rows={2}
                     placeholder="{}"
                 />
+                <CharacterBookEntries />
             </React.Fragment>
-            // characterBooksState.value.map((ag, i) => <AlternateGreeting
-            //     key={i}
-            //     name={`alternate_greeting_${i}`}
-            //     label={`Alternate Greeting ${i + 1}`}
-            //     rows={12}
-            //     onDelete={() => characterBooksState[i].set(none)}
-            //     placeholder="A good first message can make a huge difference in the length and quality of the bot's responses. Write this greeting as if the bot had written it. Avoid describing the user's actions and dialogue too much or the bot might act and speak for the user in subsequent responses." />)
         }
         {
             characterBooksState.value === null &&

@@ -3,6 +3,7 @@ import React from "react";
 
 interface CheckBoxComponentProps {
     label: string
+    checkBoxLabel: string
     placeholder?: string
     name?: string
 }
@@ -25,7 +26,7 @@ export function CheckBoxComponent(props: CheckBoxComponentProps) {
                     ? "check_box"
                     : "check_box_outline_blank"}
             </span>
-            <span>Enable {props.label}</span>
+            <span>{props.checkBoxLabel}</span>
         </div>
     </div>
 }

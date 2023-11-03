@@ -53,7 +53,7 @@ export default function CharacterEditor() {
                     <InputBox
                         name="extensions"
                         label="Extensions"
-                        rows={4}
+                        rows={2}
                         placeholder="{}"
                     />
                 </form>

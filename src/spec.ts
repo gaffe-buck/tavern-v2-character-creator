@@ -13,9 +13,9 @@ export class TavernCardV2 {
         creator_notes: string
         system_prompt: string
         post_history_instructions: string
-        alternate_greetings: Array<string>
+        alternate_greetings: string[]
         character_book?: CharacterBook
-        tags: Array<string>
+        tags: string[]
         creator: string
         character_version: string
         extensions: Record<string, any>
@@ -29,20 +29,22 @@ export interface CharacterBook {
     token_budget?: number
     recursive_scanning?: boolean
     extensions: Record<string, any>
-    entries: Array<{
-        keys: Array<string>
-        content: string
-        extensions: Record<string, any>
-        enabled: boolean
-        insertion_order: number
-        case_sensitive?: boolean
-        name?: string
-        priority?: number
-        id?: number
-        comment?: string
-        selective?: boolean
-        secondary_keys?: Array<string>
-        constant?: boolean
-        position?: 'before_char' | 'after_char'
-    }>
+    entries: CharacterBookEntry[]
+}
+
+export interface CharacterBookEntry {
+    keys: string[]
+    content: string
+    extensions: Record<string, any>
+    enabled: boolean
+    insertion_order: number
+    case_sensitive?: boolean
+    name?: string
+    priority?: number
+    id?: number
+    comment?: string
+    selective?: boolean
+    secondary_keys?: string[]
+    constant?: boolean
+    position?: 'before_char' | 'after_char'
 }
