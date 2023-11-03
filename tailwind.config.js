@@ -7,11 +7,13 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      'darker': '#4B244A',
-      'darkest': '#25171a',
-      'dead': '#533A7B',
-      'mumble': '#6969b3',
-      'loud': '#98c1d9'
+      'backdrop': '#E9EDC9',
+      'inset': '#FEFAE0',
+      'header': '#D4A373',
+      'mumble': '#6C464F',
+      'loud': '#D4A373',
+      'label': '#CCD5AE',
+      'white': '#fff'
     },
     extend: {},
   },
