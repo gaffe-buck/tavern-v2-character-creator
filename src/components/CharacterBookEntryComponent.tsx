@@ -4,6 +4,7 @@ import { CharacterBookEntry } from "src/spec";
 import { CheckBoxComponent } from "./CheckBoxComponent";
 import { InputBox } from "./InputBox";
 import { InputLine } from "./InputLine";
+import { RadioComponent } from "./RadioComponent";
 
 interface CharacterBookEntryComponentProps {
     name: string,
@@ -91,6 +92,16 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
             name={`${props.name}.constant`}
             label="Constant"
             checkBoxLabel="Always insert this entry into the prompt."
+        />
+        <RadioComponent
+            name={`${props.name}.position`}
+            label="Position"
+            default={0}
+            radios={[
+                { label: "Client default", value: "" },
+                { label: "Before character definitions", value: "before_char" },
+                { label: "After character definitions", value: "after_char" },
+            ]}
         />
     </div>
 }
