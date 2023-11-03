@@ -1,9 +1,10 @@
 import React from "react";
-import { Header3 } from "./Header3";
 import { State, useHookstate } from "@hookstate/core";
 import { CharacterBook } from "src/spec";
 import { InputLine } from "./InputLine";
 import { InputBox } from "./InputBox";
+import { Header2 } from "./Header2";
+import { CheckBoxComponent } from "./CheckBoxComponent";
 
 export function CharacterBookComponent() {
     const createCharacterBook = (): CharacterBook => {
@@ -16,7 +17,18 @@ export function CharacterBookComponent() {
     const characterBooksState: State<CharacterBook | null> = useHookstate<CharacterBook | null>(null)
 
     return <React.Fragment>
-        <Header3>Character Book</Header3>
+        <div
+            onClick={() => characterBooksState.set(null)}
+            className="text-interactive flex flex-row items-center hover:cursor-pointer select-none justify-between" >
+            <Header2> Character Book</Header2>
+            {
+                characterBooksState.value && <div className="text-sm flex flex-row items-center">
+                    <span className="text-lg mr-2 material-symbols-outlined">
+                        delete
+                    </span>
+                </div>
+            }
+        </div >
         {
             characterBooksState.value !== null &&
             <React.Fragment>
@@ -40,7 +52,7 @@ export function CharacterBookComponent() {
                     label="Token Budget"
                     placeholder="Optional"
                 />
-                <InputLine
+                <CheckBoxComponent
                     name="lore.recursive_scanning"
                     label="Recursive Scanning"
                     placeholder="false"
@@ -61,23 +73,15 @@ export function CharacterBookComponent() {
             //     placeholder="A good first message can make a huge difference in the length and quality of the bot's responses. Write this greeting as if the bot had written it. Avoid describing the user's actions and dialogue too much or the bot might act and speak for the user in subsequent responses." />)
         }
         {
-            characterBooksState.value === null
-                ? <div
-                    onClick={() => characterBooksState.set(createCharacterBook())}
-                    className="text-interactive flex flex-row items-center mb-4 hover:cursor-pointer select-none">
-                    <span className="mr-2 material-symbols-outlined">
-                        add
-                    </span>
-                    <span>Add a character book</span>
-                </div>
-                : <div
-                    onClick={() => characterBooksState.set(null)}
-                    className="text-interactive flex flex-row items-center mb-4 hover:cursor-pointer select-none">
-                    <span className="mr-2 material-symbols-outlined">
-                        delete
-                    </span>
-                    <span>Delete the character book</span>
-                </div>
+            characterBooksState.value === null &&
+            <div
+                onClick={() => characterBooksState.set(createCharacterBook())}
+                className="text-interactive flex flex-row items-center mb-4 hover:cursor-pointer select-none">
+                <span className="mr-2 material-symbols-outlined">
+                    add
+                </span>
+                <span>Add a character book</span>
+            </div>
         }
-    </React.Fragment>
+    </React.Fragment >
 }

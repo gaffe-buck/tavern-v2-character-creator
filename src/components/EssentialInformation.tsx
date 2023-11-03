@@ -25,12 +25,12 @@ export function EssentialInformation() {
         <InputLine
             name="scenario"
             label="Scenario"
-            placeholder="The current circumstances to the conversation."
+            placeholder="A very brief summary of the current circumstances to the conversation."
         />
         <InputBox
             name="first_mes"
             label="Greeting"
-            placeholder="A good first message can make a huge difference in the length and quality of the bot's responses. Write this greeting as if the bot had written it. Avoid describing the user's actions and dialogue too much or the bot might act and speak for the user in subsequent responses."
+            placeholder="A good first message can make a huge difference in the length and quality of the bot's responses. Write this greeting as if the bot had written it. Avoid describing the user's actions and dialogue too much or the bot might be more likely to act and speak for the user in subsequent responses."
         />
         <InputBox
             name="mes_example"
