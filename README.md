@@ -16,6 +16,7 @@ All the fun AI roleplay tools have 'tavern' in the name so mine will, too. Tv2CC
 * PNG crop and metadata import/export
 * toggle outline
 * collapse lorebook entries
+* live estimated token counts
 
 ### If You Pay Me
 * host as service with persistent storage, character gallery, social features
