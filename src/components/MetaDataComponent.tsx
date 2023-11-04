@@ -4,6 +4,7 @@ import { InputLine } from "./InputLine";
 import { InputBox } from "./InputBox";
 import { State } from "@hookstate/core";
 import { TavernCardV2 } from "src/spec";
+import { InputTags } from "./InputTags";
 
 export function MetaDataComponent(props: { cardState: State<TavernCardV2> }) {
     return <React.Fragment>
@@ -24,12 +25,12 @@ export function MetaDataComponent(props: { cardState: State<TavernCardV2> }) {
             value={props.cardState.data.creator_notes.value}
             onChange={(v) => props.cardState.data.creator_notes.set(v)}
         />
-        <InputLine
+        <InputTags
             name="tags"
             label="Tags"
             placeholder="comma, separated, list, of, tags"
-            value={"IMPLEMENT ME"}
-            onChange={(v) => console.log("Implement me!")}
+            value={props.cardState.data.tags.value}
+            onChange={(v: string[]) => props.cardState.data.tags.set(v)}
         />
         <InputLine
             name="character_version"

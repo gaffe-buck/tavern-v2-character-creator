@@ -6,6 +6,7 @@ import { InputBox } from "./InputBox";
 import { InputLine } from "./InputLine";
 import { RadioComponent } from "./RadioComponent";
 import { InputNumber } from "./InputNumber";
+import { InputTags } from "./InputTags";
 
 interface CharacterBookEntryComponentProps {
     name: string,
@@ -46,20 +47,20 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
             value={props.entry.name.value}
             onChange={(v) => props.entry.name.set(v)}
         />
-        <InputLine
+        <InputTags
             name={`${props.name}.keys`}
             label="Keys"
             placeholder="comma, separated, list, of, keys"
             required={true}
-            value={"IMPLEMENT ME"}
-            onChange={(v) => console.log("IMPLEMENT ME!")}
+            value={props.entry.nested("keys").value}
+            onChange={(v) => props.entry.nested("keys").set(v)}
         />
-        <InputLine
+        <InputTags
             name={`${props.name}.secondary_keys`}
             label="Secondary Keys"
-            placeholder="comma, separated, list, of, keys"
-            value={"IMPLEMENT ME"}
-            onChange={(v) => console.log("IMPLEMENT ME!")}
+            placeholder="optional, comma, separated, list, of, keys"
+            value={props.entry.secondary_keys.value}
+            onChange={(v) => props.entry.secondary_keys.set(v)}
         />
         <InputBox
             name={`${props.name}.content`}
