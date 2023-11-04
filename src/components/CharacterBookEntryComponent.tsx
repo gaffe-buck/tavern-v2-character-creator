@@ -124,8 +124,8 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
             name={`${props.name}.comment`}
             label="Comment"
             placeholder="Optional"
-            value={props.entry.name.value}
-            onChange={(v) => props.entry.name.set(v)}
+            value={props.entry.comment.value}
+            onChange={(v) => props.entry.comment.set(v)}
         />
         <CheckBoxComponent
             name={`${props.name}.selective`}
@@ -144,7 +144,6 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
         <RadioComponent
             name={`${props.name}.position`}
             label="Position"
-            default={0}
             radios={[
                 { label: "Client default", value: "" },
                 { label: "Before character definitions", value: "before_char" },

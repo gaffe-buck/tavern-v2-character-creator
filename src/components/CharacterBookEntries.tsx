@@ -7,8 +7,10 @@ import { CharacterBookEntryComponent } from "./CharacterBookEntryComponent";
 export function CharacterBookEntries(props: { cardState: State<TavernCardV2> }) {
     const createCharacterBookEntry = (): CharacterBookEntry => {
         return {
+            name: "",
             keys: [],
             content: "",
+            comment: "",
             extensions: {},
             enabled: true,
             insertion_order: 0,

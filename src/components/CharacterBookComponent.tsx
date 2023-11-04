@@ -11,6 +11,8 @@ import { InputExtensions } from "./InputExtensions";
 export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }) {
     const createCharacterBook = (): CharacterBook => {
         return {
+            name: "",
+            description: "",
             entries: [],
             extensions: {},
         }

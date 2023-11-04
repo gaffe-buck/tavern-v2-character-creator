@@ -9,6 +9,7 @@ import { TavernCardV2 } from "./spec";
 import { State, useHookstate } from "@hookstate/core";
 import { MetaDataComponent } from "./components/MetaDataComponent";
 import { Footer } from "./components/Footer";
+import { ExportControls } from "./components/ExportControls";
 
 export default function CharacterEditor() {
     const createNewCharacterCard = (): TavernCardV2 => {
@@ -45,6 +46,7 @@ export default function CharacterEditor() {
                     <CharacterBookComponent cardState={cardState} />
                     <MetaDataComponent cardState={cardState} />
                 </form>
+                <ExportControls cardState={cardState} />
             </InsetContent>
             <Footer />
         </MainContent>

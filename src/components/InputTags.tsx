@@ -15,7 +15,7 @@ export function InputTags(props: InputTagsProps) {
     const localValueState = useHookstate("")
 
     useEffect(() => {
-        const newValue = parseTags(props.value)
+        const newValue = parseTags(props.value ?? [])
         if (newValue !== parseTags(createTagsFromText(localValueState.value))) {
             localValueState.set(newValue)
         }

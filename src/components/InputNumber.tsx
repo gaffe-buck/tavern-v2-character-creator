@@ -5,13 +5,19 @@ interface InputNumberProps {
     label: string
     placeholder?: string
     name?: string
-    value: number | null
+    value: number | undefined
     optional?: boolean
-    onChange: (v: string) => void
+    onChange: (v: number) => void
     onDelete?: () => void
 }
 
 export function InputNumber(props: InputNumberProps) {
+    function localOnChange(v: string) {
+        const newValue = Number(v)
+        if (isNaN(newValue)) props.onDelete()
+        else props.onChange(newValue)
+    }
+
     return <div className="mb-8 relative">
         <div className="flex flex-row justify-between items-center">
             <label
@@ -32,9 +38,8 @@ export function InputNumber(props: InputNumberProps) {
             id={props.name}
             placeholder={props.placeholder}
             value={props.value ?? ""}
-            type="number"
-            step={1}
-            onChange={(e) => { props.onChange(e.target.value) }}
+            type="text"
+            onChange={(e) => localOnChange(e.target.value)}
             className="w-full p-4 text-lg border-2 border-mumble rounded-md bg-inset focus:outline-none placeholder:text-loud text-mumble"
         />
         {!props.optional && isNaN(props.value) && <Required />}
