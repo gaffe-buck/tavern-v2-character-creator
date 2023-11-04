@@ -7,6 +7,7 @@ import { InputLine } from "./InputLine";
 import { RadioComponent } from "./RadioComponent";
 import { InputNumber } from "./InputNumber";
 import { InputTags } from "./InputTags";
+import { InputExtensions } from "./InputExtensions";
 
 interface CharacterBookEntryComponentProps {
     name: string,
@@ -71,13 +72,13 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
             value={props.entry.content.value}
             onChange={(v) => props.entry.content.set(v)}
         />
-        <InputBox
+        <InputExtensions
             name={`${props.name}.extensions`}
             label="Entry Extensions"
             rows={2}
             placeholder="{}"
-            value={"IMPLEMENT ME"}
-            onChange={(v) => console.log("IMPLEMENT ME!")}
+            value={props.entry.extensions.value}
+            onChange={(v: Record<string, any>) => props.entry.extensions.set(v)}
         />
         <CheckBoxComponent
             name={`${props.name}.enabled`}

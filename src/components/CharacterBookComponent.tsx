@@ -1,12 +1,12 @@
 import React from "react";
-import { State, none, useHookstate } from "@hookstate/core";
+import { State, none } from "@hookstate/core";
 import { CharacterBook, TavernCardV2 } from "src/spec";
 import { InputLine } from "./InputLine";
-import { InputBox } from "./InputBox";
 import { Header2 } from "./Header2";
 import { CheckBoxComponent } from "./CheckBoxComponent";
 import { CharacterBookEntries } from "./CharacterBookEntries";
 import { InputNumber } from "./InputNumber";
+import { InputExtensions } from "./InputExtensions";
 
 export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }) {
     const createCharacterBook = (): CharacterBook => {
@@ -74,13 +74,13 @@ export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }
                     value={bookState.recursive_scanning?.value}
                     onChange={() => bookState.recursive_scanning.set(!bookState.recursive_scanning.value)}
                 />
-                <InputBox
+                <InputExtensions
                     name="lore.extensions"
                     label="Book Extensions"
                     rows={2}
                     placeholder="{}"
-                    value={"IMPLEMENT ME"}
-                    onChange={(v) => console.log("IMPLEMENT ME")}
+                    value={bookState.extensions.value}
+                    onChange={(v: Record<string, any>) => bookState.extensions.set(v)}
                 />
                 <CharacterBookEntries cardState={props.cardState} />
             </React.Fragment>

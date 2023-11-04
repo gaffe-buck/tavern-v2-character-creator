@@ -5,6 +5,7 @@ import { InputBox } from "./InputBox";
 import { State } from "@hookstate/core";
 import { TavernCardV2 } from "src/spec";
 import { InputTags } from "./InputTags";
+import { InputExtensions } from "./InputExtensions";
 
 export function MetaDataComponent(props: { cardState: State<TavernCardV2> }) {
     return <React.Fragment>
@@ -54,13 +55,13 @@ export function MetaDataComponent(props: { cardState: State<TavernCardV2> }) {
             value={props.cardState.data.post_history_instructions.value}
             onChange={(v) => props.cardState.data.post_history_instructions.set(v)}
         />
-        <InputBox
+        <InputExtensions
             name="extensions"
             label="Extensions"
             rows={2}
             placeholder="{}"
-            value={"IMPLEMENT ME!"}
-            onChange={(v) => console.log("Implement me!")}
+            value={props.cardState.data.extensions.value}
+            onChange={(v: Record<string, any>) => props.cardState.data.extensions.set(v)}
         />
     </React.Fragment>
 }
