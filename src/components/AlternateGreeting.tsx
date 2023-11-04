@@ -30,7 +30,6 @@ export function AlternateGreeting(props: AlternateGreetingProps) {
             id={props.name}
             rows={props.rows ?? 8}
             placeholder={props.placeholder}
-            maxLength={100}
             value={props.value}
             onChange={(e) => props.onChange(e.target.value)}
             className="w-full p-4 text-lg border-2 border-mumble rounded-md bg-inset focus:outline-none placeholder:text-loud text-mumble"

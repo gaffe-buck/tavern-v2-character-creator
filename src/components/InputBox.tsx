@@ -23,7 +23,6 @@ export function InputBox(props: InputBoxProps) {
             id={props.name}
             rows={props.rows ?? 8}
             placeholder={props.placeholder}
-            maxLength={100}
             onChange={(e) => { props.onChange(e.target.value) }}
             value={props.value}
             className="w-full p-4 text-lg border-2 border-mumble rounded-md bg-inset focus:outline-none placeholder:text-loud text-mumble"
