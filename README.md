@@ -3,23 +3,25 @@
 
 All the fun AI roleplay tools have 'tavern' in the name so mine will, too. Tv2CCC will prioritize compatibility with SillyTavern.
 
+You can play with the app <a href="https://gaffe-buck.github.io/tavern-v2-character-creator/">**here**</a>. No warranty express or implied! I will not be responsible for the horrors you unleash on the world with it, either.
+
 ## Roadmap
 
 ### Minimum Viable Product
 * elegant, comfortable interface for composing character cards
 * support all major features of the character card spec v2
 * validate card
-* backfill with V1 data
+* backfill card with V1 data
 * export to JSON
 
 ### Stretch Goals
-* light/dark mode toggle
-* persist WIP in browser storage
-* PNG crop and metadata import/export
-* toggle outline
-* collapse lorebook entries
 * live estimated token counts
-* audit accessibility and resolve issues
+* PNG card import/export
+* light/dark mode toggle
+* persist WIP and dark mode prefs in browser storage
+* toggle outline, navigation convenience features
+* collapsible lorebook entries
+* audit and resolve accessibility issues
 
 ### If You Pay Me
 * host as service with persistent storage, character gallery, social features

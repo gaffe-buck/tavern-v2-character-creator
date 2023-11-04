@@ -13,6 +13,7 @@ export function EssentialInformation(props: { cardState: State<TavernCardV2> }) 
             name="name"
             label="Character Name"
             placeholder="Keep it short! The user will probably have to type it a lot."
+            required={true}
             value={props.cardState.data.name.value}
             onChange={(v) => props.cardState.data.name.set(v)}
         />
@@ -20,6 +21,7 @@ export function EssentialInformation(props: { cardState: State<TavernCardV2> }) 
             name="description"
             label="Detailed Description"
             placeholder="Will be included in every prompt. A detailed description of the most important information the model needs to know about the character. A thorough description is somewhere in the range of 300-800 tokens, and probably should not exceed 1000 tokens."
+            required={true}
             value={props.cardState.data.description.value}
             onChange={(v) => props.cardState.data.description.set(v)}
         />
@@ -43,6 +45,7 @@ export function EssentialInformation(props: { cardState: State<TavernCardV2> }) 
             placeholder="A good first message can make a huge difference in the length and quality of the bot's responses. Write this greeting as if the bot had written it. Avoid describing the user's actions and dialogue too much or the bot might be more likely to act and speak for the user in subsequent responses."
             value={props.cardState.data.first_mes.value}
             onChange={(v) => props.cardState.data.first_mes.set(v)}
+            required={true}
         />
         <InputBox
             name="mes_example"
@@ -58,6 +61,6 @@ export function EssentialInformation(props: { cardState: State<TavernCardV2> }) 
             value={props.cardState.data.mes_example.value}
             onChange={(v) => props.cardState.data.mes_example.set(v)}
         />
-        <AlternateGreetings />
+        <AlternateGreetings alternateGreetingsState={props.cardState.data.alternate_greetings} />
     </React.Fragment>
 }

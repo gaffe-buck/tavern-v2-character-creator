@@ -12,6 +12,7 @@ export function MetaDataComponent(props: { cardState: State<TavernCardV2> }) {
             name="creator"
             label="Creator"
             placeholder="You!"
+            required={true}
             value={props.cardState.data.creator.value}
             onChange={(v) => props.cardState.data.creator.set(v)}
         />

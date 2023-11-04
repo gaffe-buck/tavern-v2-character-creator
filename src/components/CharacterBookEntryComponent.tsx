@@ -50,6 +50,7 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
             name={`${props.name}.keys`}
             label="Keys"
             placeholder="comma, separated, list, of, keys"
+            required={true}
             value={"IMPLEMENT ME"}
             onChange={(v) => console.log("IMPLEMENT ME!")}
         />
@@ -64,6 +65,7 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
             name={`${props.name}.content`}
             label="Entry Content"
             rows={3}
+            required={true}
             placeholder="The lore for this entry's keys goes here."
             value={props.entry.content.value}
             onChange={(v) => props.entry.content.set(v)}

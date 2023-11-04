@@ -1,4 +1,5 @@
 import React from "react";
+import { Required } from "./Required";
 
 interface InputNumberProps {
     label: string
@@ -11,7 +12,7 @@ interface InputNumberProps {
 }
 
 export function InputNumber(props: InputNumberProps) {
-    return <div className="mb-8">
+    return <div className="mb-8 relative">
         <div className="flex flex-row justify-between items-center">
             <label
                 htmlFor={props.name}
@@ -36,5 +37,6 @@ export function InputNumber(props: InputNumberProps) {
             onChange={(e) => { props.onChange(e.target.value) }}
             className="w-full p-4 text-lg border-2 border-mumble rounded-md bg-inset focus:outline-none placeholder:text-loud text-mumble"
         />
+        {!props.optional && isNaN(props.value) && <Required />}
     </div >
 }

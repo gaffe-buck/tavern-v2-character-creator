@@ -1,16 +1,18 @@
 import React from "react";
+import { Required } from "./Required";
 
 interface InputBoxProps {
     label: string
     placeholder?: string
     name?: string
     rows?: number
+    required?: boolean
     value: string
     onChange: (v: string) => void
 }
 
 export function InputBox(props: InputBoxProps) {
-    return <div className="mb-8">
+    return <div className="mb-8 relative">
         <label
             htmlFor={props.name}
             className="block text-xl font-bold text-mumble mb-4">
@@ -26,5 +28,6 @@ export function InputBox(props: InputBoxProps) {
             value={props.value}
             className="w-full p-4 text-lg border-2 border-mumble rounded-md bg-inset focus:outline-none placeholder:text-loud text-mumble"
         />
+        {props.required && props.value === "" && <Required />}
     </div>
 }
