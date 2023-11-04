@@ -6,6 +6,7 @@ import { InputBox } from "./InputBox";
 import { Header2 } from "./Header2";
 import { CheckBoxComponent } from "./CheckBoxComponent";
 import { CharacterBookEntries } from "./CharacterBookEntries";
+import { InputNumber } from "./InputNumber";
 
 export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }) {
     const createCharacterBook = (): CharacterBook => {
@@ -47,20 +48,23 @@ export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }
                     value={bookState.description?.value}
                     onChange={(v) => bookState.description.set(v)}
                 />
-                <InputLine
+                <InputNumber
                     name="lore.scan_depth"
                     label="Scan Depth"
                     placeholder="Optional"
-                    value={"IMPLEMENT ME"}
-                    onChange={(v) => console.log("IMPLEMENT ME")}
+                    value={bookState.scan_depth.value}
+                    optional={true}
+                    onChange={(v) => bookState.scan_depth.set(Math.floor(Number(v)))}
+                    onDelete={() => bookState.scan_depth.set(none)}
                 />
-                <InputLine
+                <InputNumber
                     name="lore.token_budget"
                     label="Token Budget"
                     placeholder="Optional"
-                    value={"IMPLEMENT ME"}
-                    onChange={(v) => console.log("IMPLEMENT ME")}
-
+                    value={bookState.token_budget.value}
+                    optional={true}
+                    onChange={(v) => bookState.token_budget.set(Math.floor(Number(v)))}
+                    onDelete={() => bookState.token_budget.set(none)}
                 />
                 <CheckBoxComponent
                     name="lore.recursive_scanning"

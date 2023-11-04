@@ -1,10 +1,11 @@
-import { ImmutableObject, State, none } from "@hookstate/core";
+import { State, none } from "@hookstate/core";
 import React from "react";
 import { CharacterBookEntry } from "src/spec";
 import { CheckBoxComponent } from "./CheckBoxComponent";
 import { InputBox } from "./InputBox";
 import { InputLine } from "./InputLine";
 import { RadioComponent } from "./RadioComponent";
+import { InputNumber } from "./InputNumber";
 
 interface CharacterBookEntryComponentProps {
     name: string,
@@ -89,26 +90,31 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
             value={props.entry.case_sensitive.value}
             onChange={() => props.entry.case_sensitive.set(!props.entry.case_sensitive.value)}
         />
-        <InputLine
+        <InputNumber
             name={`${props.name}.insertion_order`}
             label="Insertion Order"
             placeholder="0"
-            value={"IMPLEMENT ME"}
-            onChange={(v) => console.log("IMPLEMENT ME!")}
+            value={props.entry.insertion_order.value}
+            onChange={(v) => props.entry.insertion_order.set(Math.floor(Number(v)))}
+            onDelete={() => props.entry.insertion_order.set(none)}
         />
-        <InputLine
+        <InputNumber
             name={`${props.name}.priority`}
             label="Priority"
-            placeholder="0"
-            value={"IMPLEMENT ME"}
-            onChange={(v) => console.log("IMPLEMENT ME!")}
+            placeholder="Optional"
+            value={props.entry.priority.value}
+            optional={true}
+            onChange={(v) => props.entry.priority.set(Math.floor(Number(v)))}
+            onDelete={() => props.entry.priority.set(none)}
         />
-        <InputLine
+        <InputNumber
             name={`${props.name}.id`}
             label="Id"
             placeholder="Optional"
-            value={"IMPLEMENT ME"}
-            onChange={(v) => console.log("IMPLEMENT ME!")}
+            value={props.entry.id.value}
+            optional={true}
+            onChange={(v) => props.entry.id.set(Math.floor(Number(v)))}
+            onDelete={() => props.entry.id.set(none)}
         />
         <InputLine
             name={`${props.name}.comment`}
