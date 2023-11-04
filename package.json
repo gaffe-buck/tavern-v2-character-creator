@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "A simple character creator for Character Card Spec v2",
   "scripts": {
-    "build": "npm run clean && parcel build src/index.html --dist-dir docs",
+    "build": "npm run clean && parcel build src/index.html --dist-dir docs --public-url .",
     "launch": "npm run build && serve -s docs",
     "clean": "rimraf docs",
     "lint": "tslint -c tslint.json -p tsconfig.json -t stylish",
-    "start": "parcel -p 3000 --no-cache src/index.html --dist-dir docs"
+    "start": "parcel -p 3000 --no-cache src/index.html --dist-dir dist"
   },
   "author": "",
   "license": "ISC",
