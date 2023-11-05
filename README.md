@@ -9,17 +9,17 @@ You can play with the app <a href="https://gaffe-buck.github.io/tavern-v2-charac
 * comfortable interface for composing character cards
 * supports all major features of the character card spec v2
 * validate card (sort of)
+* import from PNG or JSON
 * export to JSON
 * persists WIP in browser local storage
 
 ## Roadmap
 
-### Minimum Viable Product
-* import JSON
-* PNG card import/export
+### Immediate Goals
+* PNG card export
+* live estimated token counts
 
 ### Stretch Goals
-* live estimated token counts
 * backfill card with V1 data
 * light/dark mode toggle
 * persist dark mode prefs in local storage

@@ -10,7 +10,7 @@ import { State, useHookstate } from "@hookstate/core";
 import { MetaDataComponent } from "./components/MetaDataComponent";
 import { Footer } from "./components/Footer";
 import { ExportControls } from "./components/ExportControls";
-import { GlobalStateManager } from "./GlobalStateManager";
+import { MainMenu } from "./components/MainMenu";
 
 export default function CharacterEditor(props: { cardState: State<TavernCardV2> }) {
     const cardState = useHookstate<TavernCardV2>(props.cardState)
@@ -19,13 +19,7 @@ export default function CharacterEditor(props: { cardState: State<TavernCardV2> 
         <MainContent>
             <InsetContent>
                 <MainHeader />
-                {/* TODO stick me in a component or something */}
-                <div className="flex flex-row mb-4">
-                    <button
-                        onClick={() => GlobalStateManager.clear()}
-                        className="text-bold text-lg bg-backdrop p-4 rounded-lg text-interactive select-none cursor-pointer">
-                        New Character</button>
-                </div>
+                <MainMenu />
                 <form>
                     <EssentialInformation cardState={cardState} />
                     <CharacterBookComponent cardState={cardState} />
