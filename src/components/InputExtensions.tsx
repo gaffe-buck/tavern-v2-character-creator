@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useHookstate } from "@hookstate/core";
 import { Invalid } from "./Invalid";
+import { GlobalStateManager } from "src/GlobalStateManager";
 
 interface InputExtensionsProps {
     label: string
@@ -43,6 +44,8 @@ export function InputExtensions(props: InputExtensionsProps) {
         } else {
             props.onChange({})
         }
+
+        GlobalStateManager.save()
     }
 
     function validate(v: string) {

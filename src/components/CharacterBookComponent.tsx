@@ -13,6 +13,9 @@ export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }
         return {
             name: "",
             description: "",
+            scan_depth: 2,
+            token_budget: 500,
+            recursive_scanning: false,
             entries: [],
             extensions: {},
         }

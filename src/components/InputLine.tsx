@@ -1,5 +1,6 @@
 import React from "react";
 import { Required } from "./Required";
+import { GlobalStateManager } from "src/GlobalStateManager";
 
 interface InputLineProps {
     label: string
@@ -23,6 +24,7 @@ export function InputLine(props: InputLineProps) {
             placeholder={props.placeholder}
             value={props.value}
             onChange={(e) => { props.onChange(e.target.value) }}
+            onBlur={() => GlobalStateManager.save()}
             type="text"
             className="w-full p-4 text-lg border-2 border-mumble rounded-md bg-inset focus:outline-none placeholder:text-loud text-mumble"
         />

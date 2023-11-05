@@ -1,5 +1,6 @@
 import React from "react";
 import { Required } from "./Required";
+import { GlobalStateManager } from "src/GlobalStateManager";
 
 interface InputNumberProps {
     label: string
@@ -39,6 +40,7 @@ export function InputNumber(props: InputNumberProps) {
             placeholder={props.placeholder}
             value={props.value ?? ""}
             type="text"
+            onBlur={() => GlobalStateManager.save()}
             onChange={(e) => localOnChange(e.target.value)}
             className="w-full p-4 text-lg border-2 border-mumble rounded-md bg-inset focus:outline-none placeholder:text-loud text-mumble"
         />

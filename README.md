@@ -11,17 +11,20 @@ You can play with the app <a href="https://gaffe-buck.github.io/tavern-v2-charac
 * elegant, comfortable interface for composing character cards
 * support all major features of the character card spec v2
 * validate card
-* backfill card with V1 data
 * export to JSON
+* persist WIP in browser local storage
 
 ### Stretch Goals
 * live estimated token counts
 * PNG card import/export
+* backfill card with V1 data
 * light/dark mode toggle
-* persist WIP and dark mode prefs in browser storage
+* persist dark mode prefs in local storage
 * toggle outline, navigation convenience features
-* collapsible lorebook entries
+* collapsible lorebook entries?
+* collapsible advanced settings?
 * audit and resolve accessibility issues
+* better extensions editor
 
 ### If You Pay Me
 * host as service with persistent storage, character gallery, social features

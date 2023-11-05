@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Required } from "./Required";
 import { ImmutableArray, useHookstate } from "@hookstate/core";
+import { GlobalStateManager } from "src/GlobalStateManager";
 
 interface InputTagsProps {
     label: string
@@ -52,6 +53,7 @@ export function InputTags(props: InputTagsProps) {
             id={props.name}
             placeholder={props.placeholder}
             value={localValueState.value}
+            onBlur={() => GlobalStateManager.save()}
             onChange={(e) => { localOnChange(e.target.value) }}
             type="text"
             className="w-full p-4 text-lg border-2 border-mumble rounded-md bg-inset focus:outline-none placeholder:text-loud text-mumble"
