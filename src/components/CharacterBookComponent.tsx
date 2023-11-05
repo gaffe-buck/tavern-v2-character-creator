@@ -42,21 +42,21 @@ export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }
                 <InputLine
                     name="lore.name"
                     label="Character Book Name"
-                    placeholder="Optional"
+                    placeholder="Optional, not used in prompt"
                     value={bookState.name?.value}
                     onChange={(v) => bookState.name.set(v)}
                 />
                 <InputLine
                     name="lore.description"
                     label="Character Book Description"
-                    placeholder="Optional"
+                    placeholder="Optional, not used in prompt"
                     value={bookState.description?.value}
                     onChange={(v) => bookState.description.set(v)}
                 />
                 <InputNumber
                     name="lore.scan_depth"
                     label="Scan Depth"
-                    placeholder="Optional"
+                    placeholder="Previous messages to scan for character book keywords"
                     value={bookState.scan_depth.value}
                     optional={true}
                     onChange={(v) => bookState.scan_depth.set(Math.floor(Number(v)))}
@@ -65,7 +65,7 @@ export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }
                 <InputNumber
                     name="lore.token_budget"
                     label="Token Budget"
-                    placeholder="Optional"
+                    placeholder="Maximum tokens to add to prompt from character book entries"
                     value={bookState.token_budget.value}
                     optional={true}
                     onChange={(v) => bookState.token_budget.set(Math.floor(Number(v)))}
@@ -74,7 +74,7 @@ export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }
                 <CheckBoxComponent
                     name="lore.recursive_scanning"
                     label="Recursive Scanning"
-                    checkBoxLabel="Enable recursive scanning"
+                    checkBoxLabel="This entry content can trigger other character book entries"
                     placeholder="false"
                     value={bookState.recursive_scanning?.value}
                     onChange={() => bookState.recursive_scanning.set(!bookState.recursive_scanning.value)}

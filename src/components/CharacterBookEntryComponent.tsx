@@ -44,7 +44,7 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
         <InputLine
             name={`${props.name}.name`}
             label="Name"
-            placeholder="The name of this entry. Not used in prompt"
+            placeholder="The name of this entry, not used in prompt"
             value={props.entry.name.value}
             onChange={(v) => props.entry.name.set(v)}
         />
@@ -68,7 +68,7 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
             label="Entry Content"
             rows={3}
             required={true}
-            placeholder="The lore for this entry's keys goes here."
+            placeholder="The lore associated with this entry's keys"
             value={props.entry.content.value}
             onChange={(v) => props.entry.content.set(v)}
         />
@@ -105,7 +105,7 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
         <InputNumber
             name={`${props.name}.priority`}
             label="Priority"
-            placeholder="Optional"
+            placeholder="Entries with lower values are discarded first to stay under the token budget"
             value={props.entry.priority.value}
             optional={true}
             onChange={(v) => props.entry.priority.set(Math.floor(Number(v)))}
@@ -114,7 +114,7 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
         <InputNumber
             name={`${props.name}.id`}
             label="Id"
-            placeholder="Optional"
+            placeholder="Optional, not used in prompt"
             value={props.entry.id.value}
             optional={true}
             onChange={(v) => props.entry.id.set(Math.floor(Number(v)))}
@@ -123,21 +123,21 @@ export function CharacterBookEntryComponent(props: CharacterBookEntryComponentPr
         <InputLine
             name={`${props.name}.comment`}
             label="Comment"
-            placeholder="Optional"
+            placeholder="Optional, not used in prompt"
             value={props.entry.comment.value}
             onChange={(v) => props.entry.comment.set(v)}
         />
         <CheckBoxComponent
             name={`${props.name}.selective`}
             label="Selective"
-            checkBoxLabel="Require a key from both keys and secondary keys to trigger this entry"
+            checkBoxLabel="Require a key from both primary keys and secondary keys to trigger this entry"
             value={props.entry.selective.value}
             onChange={() => props.entry.selective.set(!props.entry.selective.value)}
         />
         <CheckBoxComponent
             name={`${props.name}.constant`}
             label="Constant"
-            checkBoxLabel="Always insert this entry into the prompt."
+            checkBoxLabel="Always insert this entry into the prompt"
             value={props.entry.constant.value}
             onChange={() => props.entry.constant.set(!props.entry.constant.value)}
         />
