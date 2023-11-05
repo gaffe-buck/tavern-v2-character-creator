@@ -12,7 +12,7 @@ export function MainMenu() {
         await GlobalStateManager.import(e.target.files[0])
     }
 
-    return <div className="flex flex-row mb-4">
+    return <div className="flex flex-row mb-4 justify-evenly">
         <button
             onClick={() => GlobalStateManager.clear()}
             className="m-4 text-bold text-lg bg-backdrop p-4 rounded-lg text-interactive select-none cursor-pointer">

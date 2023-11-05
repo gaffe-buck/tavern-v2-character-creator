@@ -1,7 +1,7 @@
 import { State, hookstate } from "@hookstate/core";
 import { TavernCardV2 } from "./spec";
 import * as Cards from 'character-card-utils';
-import { ImageTools } from "./ImageTools";
+import { Png } from "./Png";
 
 const STORAGE_KEY: string = "cardData"
 
@@ -47,7 +47,7 @@ export class GlobalStateManager {
         }
         else if (file.type === "image/png") {
             try {
-                const dataString = ImageTools.parse(await file.arrayBuffer())
+                const dataString = Png.Parse(await file.arrayBuffer())
                 const data = JSON.parse(dataString)
 
                 const result = Cards.safeParseToV2(data)
@@ -60,6 +60,27 @@ export class GlobalStateManager {
             catch {
                 alert("I couldn't parse that character card, sorry.")
             }
+        }
+    }
+
+    static async exportPng(file: File) {
+        // thanks ZoltanAI
+        try {
+            const cardData = JSON.stringify(this.globalState.value)
+            const oldImageData = await file.arrayBuffer()
+            const newImageData = Png.Generate(oldImageData, cardData)
+            const newFileName = `${this.globalState.data.name.value || "character"}.png`
+            const newFile = new File([newImageData], newFileName, { type: "image/png" })
+
+            const link = window.URL.createObjectURL(newFile)
+
+            const a = document.createElement("a")
+            a.setAttribute("download", newFileName)
+            a.setAttribute("href", link)
+            a.click()
+        }
+        catch {
+            alert("I couldn't export this character card, sorry.")
         }
     }
 

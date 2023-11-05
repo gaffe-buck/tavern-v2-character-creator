@@ -10,13 +10,12 @@ You can play with the app <a href="https://gaffe-buck.github.io/tavern-v2-charac
 * supports all major features of the character card spec v2
 * validate card (sort of)
 * import from PNG or JSON
-* export to JSON
+* export to PNG or JSON
 * persists WIP in browser local storage
 
 ## Roadmap
 
 ### Immediate Goals
-* PNG card export
 * live estimated token counts
 
 ### Stretch Goals

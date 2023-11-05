@@ -1,13 +1,7 @@
 import * as CRC32 from 'crc-32'
 
-export class ImageTools {
-    static parse(arrayBuffer: ArrayBuffer): string {
-        return Png.Parse(arrayBuffer)
-    }
-}
-
 // Thanks ZoltanAI
-class Png {
+export class Png {
     static uint8 = new Uint8Array(4);
     static int32 = new Int32Array(this.uint8.buffer);
     static uint32 = new Uint32Array(this.uint8.buffer);

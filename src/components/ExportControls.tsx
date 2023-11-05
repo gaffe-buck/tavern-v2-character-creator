@@ -1,9 +1,10 @@
 import { State, none, useHookstate } from "@hookstate/core";
-import React from "react";
+import React, { useRef } from "react";
 import { TavernCardV2 } from "src/spec";
 import * as Cards from 'character-card-utils';
 import { Header3 } from "./Header3";
 import { Header2 } from "./Header2";
+import { GlobalStateManager } from "src/GlobalStateManager";
 
 export function ExportControls(props: { cardState: State<TavernCardV2> }) {
     const outputCard = useHookstate<TavernCardV2>(new TavernCardV2())
@@ -57,8 +58,22 @@ export function ExportControls(props: { cardState: State<TavernCardV2> }) {
         return warnings
     }
 
+    function handleFileInputClick() {
+        fileInputRef.current.click()
+    }
+
+    function handleJsonExportClick() {
+        exportLinkRef.current.click()
+    }
+
+    async function fileOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+        await GlobalStateManager.exportPng(e.target.files[0])
+    }
+
     const valid = validate()
     const warnings: string[] = getWarnings()
+    const fileInputRef = useRef(null)
+    const exportLinkRef = useRef(null)
 
     return <div className="mb-8">
         <Header2>Export</Header2>
@@ -75,14 +90,32 @@ export function ExportControls(props: { cardState: State<TavernCardV2> }) {
             valid &&
             <React.Fragment>
                 <Header3>Download your character</Header3>
-                <div className="mt-8">
+                <div className="flex flex-row justify-evenly my-8">
+                    <button
+                        onClick={() => handleJsonExportClick()}
+                        className="m-4 text-bold text-lg bg-backdrop p-4 rounded-lg text-interactive select-none cursor-pointer">
+                        Download your card in JSON format</button>
                     <a
-                        className="text-bold text-lg bg-backdrop p-4 rounded-lg text-interactive select-none cursor-pointer"
+                        className="hidden"
                         href={downloadUrlState.value}
                         download={`${props.cardState.data.name.value}.json`}
+                        ref={exportLinkRef}
                     >
                         Download your character in JSON format
                     </a>
+                    <button
+                        onClick={() => handleFileInputClick()}
+                        className="m-4 text-bold text-lg bg-backdrop p-4 rounded-lg text-interactive select-none cursor-pointer">
+                        Embed card into PNG</button>
+                    <input
+                        className="hidden"
+                        id="export"
+                        name="export"
+                        accept="image/png, application/json"
+                        onChange={(e) => fileOnChange(e)}
+                        type="file"
+                        ref={fileInputRef}
+                    />
                 </div>
             </React.Fragment>
         }
