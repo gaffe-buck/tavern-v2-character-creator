@@ -24,7 +24,6 @@ export function InputBox(props: InputBoxProps) {
             id={props.name}
             rows={props.rows ?? 8}
             placeholder={props.placeholder}
-            maxLength={100}
             onBlur={() => GlobalStateManager.save()}
             onChange={(e) => { props.onChange(e.target.value) }}
             value={props.value}
