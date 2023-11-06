@@ -25,17 +25,19 @@ export function EssentialInformation(props: { cardState: State<TavernCardV2> }) 
             value={props.cardState.data.description.value}
             onChange={(v) => props.cardState.data.description.set(v)}
         />
-        <InputLine
+        <InputBox
             name="personality"
             label="Personality"
             placeholder="A very brief summary of the character's personality."
+            rows={1}
             value={props.cardState.data.personality.value}
             onChange={(v) => props.cardState.data.personality.set(v)}
         />
-        <InputLine
+        <InputBox
             name="scenario"
             label="Scenario"
             placeholder="A very brief summary of the current circumstances to the conversation."
+            rows={1}
             value={props.cardState.data.scenario.value}
             onChange={(v) => props.cardState.data.scenario.set(v)}
         />

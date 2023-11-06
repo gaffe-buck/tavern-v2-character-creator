@@ -7,6 +7,7 @@ import { CheckBoxComponent } from "./CheckBoxComponent";
 import { CharacterBookEntries } from "./CharacterBookEntries";
 import { InputNumber } from "./InputNumber";
 import { InputExtensions } from "./InputExtensions";
+import { InputBox } from "./InputBox";
 
 export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }) {
     const createCharacterBook = (): CharacterBook => {
@@ -46,10 +47,11 @@ export function CharacterBookComponent(props: { cardState: State<TavernCardV2> }
                     value={bookState.name?.value}
                     onChange={(v) => bookState.name.set(v)}
                 />
-                <InputLine
+                <InputBox
                     name="lore.description"
                     label="Character Book Description"
                     placeholder="Optional, not used in prompt"
+                    rows={1}
                     value={bookState.description?.value}
                     onChange={(v) => bookState.description.set(v)}
                 />

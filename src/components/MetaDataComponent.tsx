@@ -41,17 +41,19 @@ export function MetaDataComponent(props: { cardState: State<TavernCardV2> }) {
             onChange={(v) => props.cardState.data.character_version.set(v)}
         />
         <Header2>Advanced Settings</Header2>
-        <InputLine
+        <InputBox
             name="system_prompt"
             label="System Prompt"
             placeholder="Leave this blank unless you have a reason to populate it."
+            rows={1}
             value={props.cardState.data.system_prompt.value}
             onChange={(v) => props.cardState.data.system_prompt.set(v)}
         />
-        <InputLine
+        <InputBox
             name="post_history_instructions"
             label="Jailbreak (Post History Instructions)"
             placeholder="Leave this blank unless you have a reason to populate it."
+            rows={1}
             value={props.cardState.data.post_history_instructions.value}
             onChange={(v) => props.cardState.data.post_history_instructions.set(v)}
         />
