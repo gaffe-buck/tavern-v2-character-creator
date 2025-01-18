@@ -1,6 +1,8 @@
 # Tavern v2 Character Card Creator
 **A simple character creator for Character Card Spec v2**
 
+**THIS PROJECT IS UNMAINTAINED/ABANDONED!!**
+
 All the fun AI roleplay tools have 'tavern' in the name so mine will, too. Tv2CCC will prioritize compatibility with SillyTavern.
 
 You can play with the app <a href="https://gaffe-buck.github.io/tavern-v2-character-creator/">**here**</a>. No warranty express or implied!
@@ -12,25 +14,6 @@ You can play with the app <a href="https://gaffe-buck.github.io/tavern-v2-charac
 * import from PNG or JSON
 * export to PNG or JSON
 * persists WIP in browser local storage
-
-## Roadmap
-
-### Immediate Goals
-* live estimated token counts
-
-### Stretch Goals
-* backfill card with V1 data
-* light/dark mode toggle
-* persist dark mode prefs in local storage
-* toggle outline, navigation convenience features
-* collapsible lorebook entries?
-* collapsible advanced settings?
-* audit and resolve accessibility issues
-* better extensions editor
-
-### If You Pay Me
-* themes
-* host as service with persistent storage, character gallery, social features
 
 ## Running Locally
 
